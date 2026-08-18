@@ -1,273 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TheJK.in Finance & Markets — practical market observations, company analysis, investing concepts and useful calculators.">
-<title>Finance & Markets | TheJK.in</title>
-<style>
-:root{
-  --bg:#f7f7f5; --text:#111; --muted:#66717a; --line:#d8d8d4; --card:#fbfbf9;
-  --accent:#111; --soft:#ecece8; --green:#176b45;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}
-header{height:84px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4vw;position:sticky;top:0;background:rgba(247,247,245,.96);backdrop-filter:blur(8px);z-index:10}
-.logo{font-size:25px;font-weight:800;letter-spacing:-1.5px}
-nav{display:flex;gap:38px;font-size:17px}
-nav a:hover{text-decoration:underline;text-underline-offset:5px}
-.wrap{width:min(1320px,88vw);margin:auto}
-.hero{padding:105px 0 100px;border-bottom:1px solid var(--line)}
-.kicker{font-size:14px;letter-spacing:4px;font-weight:700;color:#52606a;margin-bottom:45px}
-.hero h1{font-size:clamp(64px,9vw,132px);line-height:.88;letter-spacing:-7px;margin:0 0 38px;max-width:1200px}
-.hero h1 span{color:#707070}
-.hero p{font-size:23px;max-width:950px;color:#4e5b64;margin:0}
-.section{padding:90px 0;border-bottom:1px solid var(--line)}
-.section-label{font-size:14px;letter-spacing:4px;font-weight:700;color:#52606a;margin-bottom:38px}
-.section-title{font-size:52px;line-height:1.02;letter-spacing:-2px;margin:0 0 42px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
-.card{padding:42px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:300px;background:var(--card)}
-.card:nth-child(2n){border-right:0}
-.card:nth-last-child(-n+2){border-bottom:0}
-.number{font-size:14px;color:#777;letter-spacing:2px;margin-bottom:55px}
-.card h3{font-size:30px;line-height:1.15;margin:0 0 16px;letter-spacing:-1px}
-.card p{font-size:17px;color:#65717a;max-width:650px;margin:0 0 25px}
-.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid #bfc1bd;border-radius:20px;padding:5px 10px;margin-bottom:18px}
-.meta{font-size:13px;color:#77818a}
-.card .arrow{font-weight:700;margin-top:20px;display:inline-block}
-.article{background:#111;color:#fff;border-color:#111}
-.article p,.article .meta{color:#c9cccb}
-.article .tag{border-color:#555}
-.article .arrow{color:#fff}
-.positive{color:var(--green);font-weight:700}
-.calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.calc{border:1px solid var(--line);padding:30px;background:var(--card)}
-.calc h3{font-size:25px;margin:0 0 8px}
-.calc p{color:#68737b;font-size:14px;margin:0 0 22px}
-label{display:block;font-size:13px;font-weight:700;margin:13px 0 6px}
-input,select{width:100%;padding:12px 13px;border:1px solid #c8cbc7;background:#fff;font-size:16px;border-radius:2px}
-button{margin-top:18px;background:#111;color:#fff;border:0;padding:12px 18px;font-size:15px;font-weight:700;cursor:pointer}
-button:hover{opacity:.85}
-.result{margin-top:18px;padding:14px;background:#ecece8;font-weight:700;min-height:48px}
-.note{font-size:12px;color:#727a80;margin-top:10px}
-.tax-table{width:100%;border-collapse:collapse;margin-top:15px;font-size:13px}
-.tax-table td,.tax-table th{border:1px solid #ddd;padding:8px;text-align:left}
-footer{padding:60px 0;color:#68737b;font-size:14px}
-.disclaimer{border-left:3px solid #111;padding:14px 18px;background:#ecece8;font-size:14px;color:#4f5960}
-@media(max-width:800px){
- header{height:auto;padding:20px 6vw;align-items:flex-start}
- nav{gap:15px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
- .hero{padding:70px 0}
- .hero h1{font-size:62px;letter-spacing:-4px}
- .hero p{font-size:19px}
- .grid,.calc-grid{grid-template-columns:1fr}
- .card{border-right:0!important}
- .card:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
- .card:last-child{border-bottom:0}
- .section-title{font-size:42px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TheJK.in Finance & Markets — practical thinking on investing, valuation, personal finance, tax and business finance.">
+  <title>Finance & Markets | TheJK.in</title>
+  <style>
+    :root{
+      --ink:#111;
+      --muted:#637487;
+      --line:#d9d9d6;
+      --paper:#f8f8f6;
+      --card:#fff;
+      --accent:#173b63;
+      --max:1440px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;background:var(--paper);color:var(--ink);
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,select{font:inherit}
+    header{
+      height:96px;border-bottom:1px solid var(--line);display:flex;
+      align-items:center;justify-content:space-between;padding:0 3.5vw;
+      position:sticky;top:0;background:rgba(248,248,246,.94);backdrop-filter:blur(10px);z-index:20;
+    }
+    .brand{font-size:27px;font-weight:800;letter-spacing:-1.5px}
+    nav{display:flex;gap:40px;font-size:18px}
+    nav a:hover{color:var(--accent)}
+    main{max-width:var(--max);margin:auto}
+    .hero{padding:105px 6vw 105px;border-bottom:1px solid var(--line)}
+    .eyebrow,.section-label{
+      text-transform:uppercase;letter-spacing:4px;font-size:14px;
+      font-weight:700;color:#52677b;
+    }
+    .hero h1{
+      font-size:clamp(62px,9vw,142px);line-height:.9;letter-spacing:-7px;
+      margin:55px 0 45px;max-width:1200px;
+    }
+    .hero p{font-size:26px;max-width:900px;color:#40556a;margin:0}
+    section{padding:85px 6vw;border-bottom:1px solid var(--line)}
+    .section-title{font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-3px;margin:25px 0 50px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+    .card{padding:48px;min-height:370px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--card);display:flex;flex-direction:column}
+    .card:nth-child(2n){border-right:0}
+    .card:nth-last-child(-n+2){border-bottom:0}
+    .tag{
+      display:inline-block;border:1px solid #c7c7c3;border-radius:999px;
+      padding:7px 14px;text-transform:uppercase;letter-spacing:2px;font-size:12px;
+      width:max-content;color:#20364b
+    }
+    .card h3{font-size:32px;line-height:1.12;letter-spacing:-1.2px;margin:30px 0 18px}
+    .card p{font-size:18px;color:var(--muted);max-width:650px}
+    .meta{font-size:14px;color:#6c7c8c;margin-top:auto;padding-top:25px}
+    .read{
+      border:0;background:none;font-weight:800;font-size:17px;padding:0;
+      cursor:pointer;text-align:left;margin-top:28px;width:max-content
+    }
+    .read:hover{color:var(--accent)}
+    .tools{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+    .tool{padding:32px;background:#fff;border-right:1px solid var(--line);min-height:180px}
+    .tool:last-child{border-right:0}
+    .tool h3{margin:0 0 10px;font-size:22px}
+    .tool p{margin:0;color:var(--muted);font-size:15px}
+    .tool button{margin-top:20px;background:#111;color:#fff;border:0;padding:11px 16px;cursor:pointer}
+    .calculator{
+      margin-top:35px;border:1px solid var(--line);background:#fff;padding:40px;
+      display:none;
+    }
+    .calculator.active{display:block}
+    .calc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;color:#43576a}
+    input,select{
+      width:100%;padding:13px 14px;border:1px solid #c8c8c3;background:#fafaf8;
+      outline:none
+    }
+    input:focus,select:focus{border-color:#111}
+    .calc-actions{margin-top:24px;display:flex;gap:12px}
+    .primary,.secondary{
+      border:0;padding:13px 20px;cursor:pointer;font-weight:700
+    }
+    .primary{background:#111;color:#fff}.secondary{background:#e9e9e5;color:#111}
+    .result{margin-top:25px;padding:22px;background:#f0f2f3;border-left:4px solid var(--accent);font-size:20px}
+    .article-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+    .mini{background:#fff;padding:30px;min-height:220px}
+    .mini h3{font-size:23px;line-height:1.2;margin:15px 0}
+    .mini p{color:var(--muted)}
+    footer{padding:55px 6vw;color:#667787;display:flex;justify-content:space-between;gap:30px}
+    .disclaimer{font-size:13px;max-width:850px}
+    .modal{
+      position:fixed;inset:0;background:rgba(0,0,0,.62);display:none;
+      align-items:center;justify-content:center;padding:25px;z-index:50
+    }
+    .modal.open{display:flex}
+    .modal-box{
+      background:#fff;max-width:900px;max-height:90vh;overflow:auto;padding:55px;
+      position:relative
+    }
+    .close{position:absolute;right:20px;top:16px;border:0;background:none;font-size:30px;cursor:pointer}
+    .modal-box h2{font-size:44px;line-height:1.05;letter-spacing:-2px;margin:15px 0 25px}
+    .modal-box h3{font-size:22px;margin-top:32px}
+    .modal-box p,.modal-box li{font-size:17px;color:#40556a}
+    @media(max-width:900px){
+      header{height:75px;padding:0 20px}.brand{font-size:23px}nav{gap:15px;font-size:14px}
+      .hero{padding:70px 25px}.hero h1{letter-spacing:-4px;margin:40px 0 30px}
+      .hero p{font-size:20px}section{padding:60px 25px}
+      .grid,.tools,.article-list{grid-template-columns:1fr}
+      .card{border-right:0!important}.card:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+      .card:last-child{border-bottom:0}.tool{border-right:0;border-bottom:1px solid var(--line)}
+      .calc-grid{grid-template-columns:1fr}.modal-box{padding:35px 25px}.modal-box h2{font-size:34px}
+      footer{padding:40px 25px;display:block}
+    }
+  </style>
 </head>
 <body>
 <header>
-  <a class="logo" href="index.html">TheJK.in</a>
+  <a class="brand" href="index.html">TheJK.in</a>
   <nav>
     <a href="index.html">About</a>
-    <a href="#explore">Topics</a>
+    <a href="#topics">Topics</a>
     <a href="#insights">Insights</a>
     <a href="#calculators">Calculators</a>
   </nav>
 </header>
 
 <main>
-<section class="hero">
-<div class="wrap">
-  <div class="kicker">FINANCE · MARKETS · INVESTING</div>
-  <h1>Finance &amp;<br><span>Markets.</span></h1>
-  <p>A practical space for market observations, company analysis, valuation, investing concepts, personal finance and simple tools that help turn numbers into decisions.</p>
-</div>
-</section>
+  <section class="hero">
+    <div class="eyebrow">Finance · Markets · Investing</div>
+    <h1>Finance &amp; Markets</h1>
+    <p>A practical space for market observations, company analysis, valuation, investing concepts, personal finance, tax and business finance.</p>
+  </section>
 
-<section class="section" id="insights">
-<div class="wrap">
-  <div class="section-label">01 — INSIGHTS</div>
-  <h2 class="section-title">What matters in the market.</h2>
-  <div class="grid">
+  <section id="insights">
+    <div class="section-label">01 — Insights</div>
+    <h2 class="section-title">Ideas that remain useful<br>after the market closes.</h2>
+    <div class="grid">
+      <article class="card">
+        <span class="tag">Market Framework</span>
+        <h3>A falling market is not automatically a buying opportunity</h3>
+        <p>Price declines can create opportunity, but the right question is whether business quality, valuation and the risk-reward have improved.</p>
+        <div class="meta">Investing · Risk · Valuation</div>
+        <button class="read" onclick="openArticle('falling-market')">Read the framework →</button>
+      </article>
+      <article class="card">
+        <span class="tag">Personal Finance</span>
+        <h3>Build your financial decision around cash flow</h3>
+        <p>Salary, debt, emergency liquidity, insurance, investments and taxes are interconnected. Good financial planning starts with visibility of cash flows.</p>
+        <div class="meta">Planning · Liquidity · Risk management</div>
+        <button class="read" onclick="openArticle('cash-flow')">Explore the idea →</button>
+      </article>
+      <article class="card">
+        <span class="tag">Stocks &amp; Companies</span>
+        <h3>How to read a stock beyond its P/E ratio</h3>
+        <p>Valuation is a starting point, not the conclusion. Earnings quality, ROCE, debt, cash flow and reinvestment determine what a multiple really means.</p>
+        <div class="meta">Valuation · Quality · Fundamentals</div>
+        <button class="read" onclick="openArticle('pe-ratio')">Read the guide →</button>
+      </article>
+      <article class="card">
+        <span class="tag">Market View</span>
+        <h3>Crude oil is an important variable for India</h3>
+        <p>Because India imports a large share of its crude requirement, oil can influence inflation, the rupee, the current account and corporate margins.</p>
+        <div class="meta">Macro · Commodities · India</div>
+        <button class="read" onclick="openArticle('crude-oil')">Understand the linkage →</button>
+      </article>
+    </div>
+  </section>
 
-    <article class="card article">
-      <div class="tag">Market View · 18 Aug 2026</div>
-      <h3>Why Indian markets are under pressure today</h3>
-      <p>Indian equities are facing a combination of higher crude oil, renewed West Asia tensions, elevated US bond yields and a weaker rupee. The key question is whether the pressure becomes a short-term risk-off move or starts affecting earnings expectations.</p>
-      <div class="meta">Nifty was around 24,200 during today's session; Brent crude moved above $91.</div>
-      <div class="arrow">Read the view →</div>
-    </article>
+  <section id="topics">
+    <div class="section-label">02 — Topics</div>
+    <h2 class="section-title">Areas worth understanding.</h2>
+    <div class="article-list">
+      <div class="mini"><span class="tag">01</span><h3>Markets &amp; Investing</h3><p>Cycles, risk, valuation, portfolio construction and long-term investing principles.</p></div>
+      <div class="mini"><span class="tag">02</span><h3>Stocks &amp; Companies</h3><p>Business quality, earnings, balance sheets, cash flow and valuation.</p></div>
+      <div class="mini"><span class="tag">03</span><h3>Personal Finance</h3><p>Cash flow, debt, insurance, investing, retirement and financial discipline.</p></div>
+      <div class="mini"><span class="tag">04</span><h3>Tax &amp; Accounting</h3><p>Practical concepts around Indian tax, accounting, working capital and financial reporting.</p></div>
+      <div class="mini"><span class="tag">05</span><h3>Banking &amp; Housing Finance</h3><p>Understanding lenders through asset quality, NIMs, capital and growth.</p></div>
+      <div class="mini"><span class="tag">06</span><h3>Commodities</h3><p>Gold, silver, crude and the macroeconomic forces behind commodity prices.</p></div>
+    </div>
+  </section>
 
-    <article class="card">
-      <div class="tag">Earnings</div>
-      <h3>Nifty profit growth is improving — but margins still matter</h3>
-      <p>June 2026-quarter results showed strong aggregate profit growth among Nifty 50 companies. The encouraging part is the breadth of earnings improvement; the caution is that oil, input costs and global demand can still pressure selected sectors.</p>
-      <div class="meta">Focus: earnings quality · margins · upgrades/downgrades</div>
-      <div class="arrow">Explore the idea →</div>
-    </article>
-
-    <article class="card">
-      <div class="tag">Investing</div>
-      <h3>A falling market is not automatically a buying opportunity</h3>
-      <p>When indices decline, the better approach is to separate market risk from business risk. Strong balance sheets, sustainable cash generation and sensible valuations matter more than simply buying because a stock has fallen 10%.</p>
-      <div class="meta">Framework: business quality → valuation → catalyst → risk</div>
-      <div class="arrow">Read the framework →</div>
-    </article>
-
-    <article class="card">
-      <div class="tag">Personal Finance</div>
-      <h3>Build your financial decision around cash flow</h3>
-      <p>Salary, debt, emergency liquidity, insurance, investments and taxes are interconnected. A useful financial plan starts with cash-flow visibility before deciding how much to put into equities, gold, silver or other assets.</p>
-      <div class="meta">Practical finance · planning · risk management</div>
-      <div class="arrow">Explore personal finance →</div>
-    </article>
-
-    <article class="card">
-      <div class="tag">Stocks &amp; Companies</div>
-      <h3>How to read a stock beyond its P/E ratio</h3>
-      <p>Valuation is a starting point, not the conclusion. Compare return on capital, debt, free cash flow, earnings durability, competitive position and the price paid for future growth.</p>
-      <div class="meta">A simple checklist for long-term investors</div>
-      <div class="arrow">Read the checklist →</div>
-    </article>
-
-    <article class="card">
-      <div class="tag">Market View</div>
-      <h3>Crude oil is an important variable for India</h3>
-      <p>India's dependence on imported crude makes oil prices relevant to inflation, the rupee, the current account and corporate margins. When crude rises sharply, sector selection becomes particularly important.</p>
-      <div class="meta">Watch: crude · INR/USD · inflation · bond yields</div>
-      <div class="arrow">Understand the link →</div>
-    </article>
-
-  </div>
-</div>
-</section>
-
-<section class="section" id="explore">
-<div class="wrap">
-  <div class="section-label">02 — EXPLORE</div>
-  <h2 class="section-title">Four ways to use this section.</h2>
-  <div class="grid">
-    <div class="card"><div class="number">01</div><h3>Market View</h3><p>Market movements, sectors, macro trends and the forces behind them.</p><span class="arrow">Read insights →</span></div>
-    <div class="card"><div class="number">02</div><h3>Stocks &amp; Companies</h3><p>Business quality, earnings, valuation, catalysts and long-term investment perspectives.</p><span class="arrow">Read insights →</span></div>
-    <div class="card"><div class="number">03</div><h3>Personal Finance</h3><p>Tax, saving, investing, debt, cash flow and practical financial decisions.</p><span class="arrow">Read insights →</span></div>
-    <div class="card"><div class="number">04</div><h3>Tools &amp; Calculators</h3><p>Simple calculators for tax, SIPs, CAGR and loans — useful without spreadsheets.</p><a class="arrow" href="#calculators">Use calculators →</a></div>
-  </div>
-</div>
-</section>
-
-<section class="section" id="calculators">
-<div class="wrap">
-  <div class="section-label">03 — TOOLS</div>
-  <h2 class="section-title">Useful calculators.</h2>
-  <div class="calc-grid">
-
-    <div class="calc">
-      <h3>SIP Calculator</h3>
-      <p>Estimate the future value of a monthly investment.</p>
-      <label>Monthly investment (₹)</label><input id="sipP" type="number" value="10000">
-      <label>Expected annual return (%)</label><input id="sipR" type="number" value="12" step="0.1">
-      <label>Period (years)</label><input id="sipY" type="number" value="10">
-      <button onclick="sip()">Calculate</button>
-      <div class="result" id="sipOut">Enter values and calculate.</div>
-      <div class="note">Illustrative calculation; actual returns will vary.</div>
+  <section id="calculators">
+    <div class="section-label">03 — Calculators</div>
+    <h2 class="section-title">Simple tools for better decisions.</h2>
+    <div class="tools">
+      <div class="tool"><h3>CAGR</h3><p>Calculate annualised investment growth.</p><button onclick="showCalc('cagr')">Open</button></div>
+      <div class="tool"><h3>SIP</h3><p>Estimate the future value of monthly investing.</p><button onclick="showCalc('sip')">Open</button></div>
+      <div class="tool"><h3>Lump Sum</h3><p>Estimate future value of a one-time investment.</p><button onclick="showCalc('lump')">Open</button></div>
+      <div class="tool"><h3>Dividend Yield</h3><p>Calculate annual dividend yield from price.</p><button onclick="showCalc('dividend')">Open</button></div>
+      <div class="tool"><h3>P/E</h3><p>Calculate price-to-earnings multiple.</p><button onclick="showCalc('pe')">Open</button></div>
+      <div class="tool"><h3>Loan EMI</h3><p>Estimate monthly repayment and total interest.</p><button onclick="showCalc('emi')">Open</button></div>
+      <div class="tool"><h3>Working Capital</h3><p>Estimate the cash tied up in operating cycles.</p><button onclick="showCalc('wc')">Open</button></div>
+      <div class="tool"><h3>Rule of 72</h3><p>Estimate how long money may take to double.</p><button onclick="showCalc('rule72')">Open</button></div>
     </div>
 
-    <div class="calc">
-      <h3>CAGR Calculator</h3>
-      <p>Calculate the annualised growth rate of an investment.</p>
-      <label>Initial value (₹)</label><input id="cStart" type="number" value="100000">
-      <label>Final value (₹)</label><input id="cEnd" type="number" value="200000">
-      <label>Period (years)</label><input id="cYears" type="number" value="5" step="0.1">
-      <button onclick="cagr()">Calculate</button>
-      <div class="result" id="cagrOut">Enter values and calculate.</div>
+    <div id="calculator" class="calculator">
+      <h3 id="calcTitle" style="font-size:30px;margin-top:0"></h3>
+      <div id="calcFields" class="calc-grid"></div>
+      <div class="calc-actions">
+        <button class="primary" onclick="calculate()">Calculate</button>
+        <button class="secondary" onclick="document.getElementById('calculator').classList.remove('active')">Close</button>
+      </div>
+      <div id="calcResult" class="result" style="display:none"></div>
     </div>
-
-    <div class="calc">
-      <h3>Loan EMI Calculator</h3>
-      <p>Estimate monthly EMI, total interest and total repayment.</p>
-      <label>Loan amount (₹)</label><input id="eP" type="number" value="5000000">
-      <label>Annual interest rate (%)</label><input id="eR" type="number" value="8.5" step="0.1">
-      <label>Tenure (years)</label><input id="eY" type="number" value="20">
-      <button onclick="emi()">Calculate</button>
-      <div class="result" id="emiOut">Enter values and calculate.</div>
-    </div>
-
-    <div class="calc">
-      <h3>New-Regime Income Tax</h3>
-      <p>Indicative calculator using the AY 2026-27 new-regime slabs.</p>
-      <label>Annual taxable income (₹)</label><input id="taxIncome" type="number" value="1200000">
-      <button onclick="tax()">Calculate</button>
-      <div class="result" id="taxOut">Enter income and calculate.</div>
-      <div class="note">Includes the ₹60,000 Section 87A rebate where applicable and 4% cess. This is an educational estimate, not a tax filing tool.</div>
-    </div>
-
-  </div>
-
-  <div style="margin-top:25px" class="disclaimer">
-    <strong>Important:</strong> Market information can change quickly. Articles on this page are educational perspectives, not personalised investment advice or a recommendation to buy or sell any security. Verify current prices, filings and tax rules before acting.
-  </div>
-</div>
-</section>
+  </section>
 </main>
 
 <footer>
-<div class="wrap">
-  © 2026 TheJK.in · Finance &amp; Markets<br>
-  Ideas, experience and perspectives — presented for information and learning.
-</div>
+  <div><strong>TheJK.in</strong><br>Ideas. Experience. Perspectives.</div>
+  <div class="disclaimer">Educational content only. Articles and calculators are for general information and should not be treated as investment, tax, legal or financial advice. Market data, where referenced, should be independently verified before making decisions.</div>
 </footer>
 
+<div id="modal" class="modal" onclick="if(event.target===this)closeArticle()">
+  <div class="modal-box">
+    <button class="close" onclick="closeArticle()">×</button>
+    <div id="articleContent"></div>
+  </div>
+</div>
+
 <script>
-function money(n){return "₹"+Math.round(n).toLocaleString("en-IN");}
+const articles = {
+  "falling-market": {
+    tag:"MARKET FRAMEWORK",
+    title:"A falling market is not automatically a buying opportunity",
+    body:`
+      <p>A lower share price changes the price you pay. It does not automatically improve the underlying business. A useful response to a market decline is therefore to separate <strong>price risk</strong> from <strong>business risk</strong>.</p>
+      <h3>1. Start with the business</h3>
+      <p>Ask whether revenue, margins, competitive position, balance-sheet strength and cash generation remain intact. A 20% fall in a strong business can be interesting; a 20% fall in a structurally weak business may simply be the beginning of a larger decline.</p>
+      <h3>2. Revisit valuation</h3>
+      <p>Compare the new price with sustainable earnings and cash flows rather than with the previous market price. A stock becoming cheaper is useful only if the earnings base you are valuing is still credible.</p>
+      <h3>3. Look for a catalyst</h3>
+      <p>Potential catalysts include improving margins, deleveraging, new capacity, market-share gains or a cyclical recovery. Without a catalyst, a cheap stock can remain cheap for a long time.</p>
+      <h3>4. Define the risk</h3>
+      <p>Before adding, identify what would make your thesis wrong. This prevents a falling price from becoming an excuse to average down without analysis.</p>
+      <p><strong>Framework:</strong> Business quality → Valuation → Catalyst → Risk → Position size.</p>`
+  },
+  "cash-flow": {
+    tag:"PERSONAL FINANCE",
+    title:"Build your financial decision around cash flow",
+    body:`
+      <p>Personal finance becomes easier when decisions are viewed through monthly and annual cash flows rather than isolated products. Salary, debt, insurance, investments and taxes all compete for the same pool of money.</p>
+      <h3>Know your fixed commitments</h3>
+      <p>List essential household spending, EMIs, insurance premiums, school fees and other recurring obligations. This tells you how much of your income is already committed before investing.</p>
+      <h3>Protect liquidity first</h3>
+      <p>An emergency reserve reduces the need to sell long-term investments during an unfavourable market. The right reserve depends on employment stability, family obligations and access to other liquidity.</p>
+      <h3>Then allocate for goals</h3>
+      <p>Short-term money generally needs stability; long-term money can accept greater volatility. The objective is not to maximise return on every rupee, but to match risk with the time horizon of the goal.</p>
+      <h3>Review annually</h3>
+      <p>Income, expenses, debt and goals change. A simple annual cash-flow review can reveal whether savings are increasing, debt is becoming manageable and investments remain aligned with objectives.</p>`
+  },
+  "pe-ratio": {
+    tag:"STOCKS & COMPANIES",
+    title:"How to read a stock beyond its P/E ratio",
+    body:`
+      <p>The P/E ratio is useful because it connects market price with earnings. But a single multiple says very little without context.</p>
+      <h3>Compare growth with the multiple</h3>
+      <p>A high P/E can be reasonable for a business capable of compounding earnings for many years. A low P/E can be a warning if earnings are cyclical, declining or temporarily inflated.</p>
+      <h3>Check earnings quality</h3>
+      <p>Look at operating cash flow alongside reported profit. Persistent gaps between accounting profit and cash generation deserve investigation.</p>
+      <h3>Look at returns on capital</h3>
+      <p>ROCE and ROE help explain whether a company can turn retained capital into attractive returns. High growth with poor returns can destroy value if large amounts of capital are continually required.</p>
+      <h3>Balance sheet matters</h3>
+      <p>Debt can magnify returns in good times and magnify problems in weak cycles. Interest coverage, net debt and cash generation should be considered before concluding that a stock is cheap.</p>
+      <p><strong>Better question:</strong> What am I paying today for the quality and durability of the earnings I expect tomorrow?</p>`
+  },
+  "crude-oil": {
+    tag:"MARKET VIEW",
+    title:"Crude oil is an important variable for India",
+    body:`
+      <p>Crude oil matters to India because the country relies heavily on imported energy. Changes in oil prices can therefore affect several parts of the economy at once.</p>
+      <h3>Inflation</h3>
+      <p>Higher energy costs can feed into transportation, logistics and the prices of goods and services. The eventual impact depends on how much of the increase is absorbed by companies, consumers or the government.</p>
+      <h3>The rupee and external balance</h3>
+      <p>Higher import costs can increase demand for foreign currency. All else equal, a sustained oil spike can put pressure on the current account and the rupee.</p>
+      <h3>Corporate margins</h3>
+      <p>Oil producers can benefit from higher prices, while fuel-intensive industries may face higher costs. The impact is therefore sector-specific rather than uniformly positive or negative.</p>
+      <h3>What investors should watch</h3>
+      <p>Rather than reacting to a single day's oil move, watch the duration of the price change, refinery margins, inflation expectations, currency movement and whether companies can pass higher costs to customers.</p>`
+  }
+};
 
-function sip(){
-  const p=+document.getElementById("sipP").value, annual=+document.getElementById("sipR").value, y=+document.getElementById("sipY").value;
-  if(p<=0||annual<0||y<=0){document.getElementById("sipOut").textContent="Please enter valid values.";return}
-  const r=annual/12/100, n=y*12;
-  const fv=r===0?p*n:p*((Math.pow(1+r,n)-1)/r)*(1+r);
-  const invested=p*n;
-  document.getElementById("sipOut").innerHTML="Estimated value: <span class='positive'>"+money(fv)+"</span><br>Invested: "+money(invested)+" · Gain: "+money(fv-invested);
+function openArticle(id){
+  const a=articles[id];
+  document.getElementById('articleContent').innerHTML =
+    `<div class="tag">${a.tag}</div><h2>${a.title}</h2>${a.body}`;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
 }
-function cagr(){
-  const s=+document.getElementById("cStart").value, e=+document.getElementById("cEnd").value, y=+document.getElementById("cYears").value;
-  if(s<=0||e<=0||y<=0){document.getElementById("cagrOut").textContent="Please enter valid values.";return}
-  const c=(Math.pow(e/s,1/y)-1)*100;
-  document.getElementById("cagrOut").textContent="CAGR: "+c.toFixed(2)+"% per year";
+function closeArticle(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
 }
-function emi(){
-  const p=+document.getElementById("eP").value, annual=+document.getElementById("eR").value, y=+document.getElementById("eY").value;
-  if(p<=0||annual<0||y<=0){document.getElementById("emiOut").textContent="Please enter valid values.";return}
-  const n=y*12, r=annual/12/100;
-  const m=r===0?p/n:p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-  const total=m*n;
-  document.getElementById("emiOut").innerHTML="Monthly EMI: <span class='positive'>"+money(m)+"</span><br>Total interest: "+money(total-p)+" · Total repayment: "+money(total);
-}
-function tax(){
-  let income=+document.getElementById("taxIncome").value;
-  const out=document.getElementById("taxOut");
-  if(income<0){out.textContent="Please enter a valid income.";return}
-  // AY 2026-27 new regime slabs
-  let base=0;
-  if(income<=400000) base=0;
-  else if(income<=800000) base=(income-400000)*.05;
-  else if(income<=1200000) base=20000+(income-800000)*.10;
-  else if(income<=1600000) base=60000+(income-1200000)*.15;
-  else if(income<=2000000) base=120000+(income-1600000)*.20;
-  else if(income<=2400000) base=200000+(income-2000000)*.25;
-  else base=300000+(income-2400000)*.30;
 
-  // Rebate under section 87A up to ₹60,000 where total income <= ₹12 lakh.
-  if(income<=1200000) base=Math.max(0,base-60000);
-  const cess=base*.04, total=base+cess;
-  out.innerHTML="Income tax: "+money(base)+"<br>4% cess: "+money(cess)+"<br><strong>Estimated tax: "+money(total)+"</strong>";
+let calcType='';
+const calcConfig={
+  cagr:{title:'CAGR Calculator',fields:[
+    ['start','Starting value','number','100000'],['end','Ending value','number','150000'],['years','Investment period (years)','number','3']]},
+  sip:{title:'SIP Calculator',fields:[
+    ['monthly','Monthly investment (₹)','number','10000'],['rate','Expected annual return (%)','number','12'],['years','Period (years)','number','10']]},
+  lump:{title:'Lump Sum Calculator',fields:[
+    ['principal','Initial investment (₹)','number','100000'],['rate','Expected annual return (%)','number','12'],['years','Period (years)','number','10']]},
+  dividend:{title:'Dividend Yield Calculator',fields:[
+    ['dividend','Annual dividend per share (₹)','number','10'],['price','Current share price (₹)','number','300']]},
+  pe:{title:'P/E Calculator',fields:[
+    ['price','Share price (₹)','number','300'],['eps','EPS (₹)','number','20']]},
+  emi:{title:'Loan EMI Calculator',fields:[
+    ['principal','Loan amount (₹)','number','1000000'],['rate','Annual interest rate (%)','number','8.5'],['years','Loan period (years)','number','10']]},
+  wc:{title:'Working Capital Calculator',fields:[
+    ['inventory','Inventory (₹)','number','500000'],['receivables','Trade receivables (₹)','number','800000'],['payables','Trade payables (₹)','number','600000']]},
+  rule72:{title:'Rule of 72',fields:[
+    ['rate','Annual return / interest rate (%)','number','10']]}
+};
+
+function showCalc(type){
+  calcType=type;
+  const c=calcConfig[type];
+  document.getElementById('calcTitle').textContent=c.title;
+  document.getElementById('calcFields').innerHTML=c.fields.map(f=>
+    `<div><label for="${f[0]}">${f[1]}</label><input id="${f[0]}" type="${f[2]}" value="${f[3]}" min="0" step="any"></div>`
+  ).join('');
+  document.getElementById('calcResult').style.display='none';
+  document.getElementById('calculator').classList.add('active');
+  document.getElementById('calculator').scrollIntoView({behavior:'smooth',block:'center'});
 }
-sip(); cagr(); emi(); tax();
+function v(id){return Number(document.getElementById(id).value)||0}
+function money(n){return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n)}
+function calculate(){
+  let r='',x;
+  if(calcType==='cagr'){
+    x=(Math.pow(v('end')/v('start'),1/v('years'))-1)*100;
+    r=`CAGR: <strong>${x.toFixed(2)}%</strong> per year.`;
+  } else if(calcType==='sip'){
+    const m=v('monthly'), i=v('rate')/12/100, n=v('years')*12;
+    const fv=i?m*((Math.pow(1+i,n)-1)/i)*(1+i):m*n;
+    r=`Estimated value: <strong>${money(fv)}</strong><br>Amount invested: ${money(m*n)}<br>Estimated gain: ${money(fv-m*n)}`;
+  } else if(calcType==='lump'){
+    const fv=v('principal')*Math.pow(1+v('rate')/100,v('years'));
+    r=`Estimated future value: <strong>${money(fv)}</strong><br>Estimated gain: ${money(fv-v('principal'))}`;
+  } else if(calcType==='dividend'){
+    x=v('dividend')/v('price')*100;
+    r=`Dividend yield: <strong>${x.toFixed(2)}%</strong>`;
+  } else if(calcType==='pe'){
+    x=v('price')/v('eps');
+    r=`P/E ratio: <strong>${x.toFixed(2)}×</strong>`;
+  } else if(calcType==='emi'){
+    const p=v('principal'),m=v('rate')/12/100,n=v('years')*12;
+    const emi=m?p*m*Math.pow(1+m,n)/(Math.pow(1+m,n)-1):p/n;
+    r=`Monthly EMI: <strong>${money(emi)}</strong><br>Total repayment: ${money(emi*n)}<br>Total interest: ${money(emi*n-p)}`;
+  } else if(calcType==='wc'){
+    x=v('inventory')+v('receivables')-v('payables');
+    r=`Estimated working capital: <strong>${money(x)}</strong>`;
+  } else if(calcType==='rule72'){
+    x=72/v('rate');
+    r=`Approximate doubling time: <strong>${x.toFixed(1)} years</strong>.`;
+  }
+  const el=document.getElementById('calcResult');el.innerHTML=r;el.style.display='block';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeArticle()});
 </script>
 </body>
 </html>
