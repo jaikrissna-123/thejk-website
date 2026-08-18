@@ -1,3 +1,273 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Finance & Markets — TheJK.in"><title>Finance & Markets | TheJK.in</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="site-header"><a class="brand" href="index.html">TheJK.in</a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button><nav class="nav"><a href="index.html#about">About</a><a href="index.html#topics">Topics</a><a href="index.html#insights">Insights</a><a href="index.html#contact">Contact</a></nav></header>
-<main><section class="topic-hero"><div class="eyebrow">FINANCE · MARKETS · INVESTING</div><h1>Finance & Markets</h1><p>A practical space for market observations, company analysis, valuation, investing concepts and personal finance.</p></section><section class="section"><div class="section-label">01 — EXPLORE</div><div class="topic-grid"><article class="topic-card"><span>01</span><h3>Market View</h3><p>Observations on market movements, sectors, macro trends and the forces behind them.</p><a href="#contact">Coming soon →</a></article><article class="topic-card"><span>02</span><h3>Stocks & Companies</h3><p>Business quality, earnings, valuation and long-term investment perspectives.</p><a href="#contact">Coming soon →</a></article><article class="topic-card"><span>03</span><h3>Personal Finance</h3><p>Tax, investing, financial concepts and practical ways to think about money.</p><a href="#contact">Coming soon →</a></article><article class="topic-card"><span>04</span><h3>Tools & Calculators</h3><p>Useful calculators and simple decision-making tools for everyday finance.</p><a href="#contact">Coming soon →</a></article></div></section><section class="cta section" id="contact"><div><div class="section-label">02 — MORE TO COME</div><h2>This section will grow with practical insights and useful resources.</h2></div><a class="button button-light" href="index.html">← Back to TheJK.in</a></section></main><footer class="footer"><span>© 2026 TheJK.in</span><span>Ideas · Experience · Perspectives</span></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TheJK.in Finance & Markets — practical market observations, company analysis, investing concepts and useful calculators.">
+<title>Finance & Markets | TheJK.in</title>
+<style>
+:root{
+  --bg:#f7f7f5; --text:#111; --muted:#66717a; --line:#d8d8d4; --card:#fbfbf9;
+  --accent:#111; --soft:#ecece8; --green:#176b45;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+header{height:84px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4vw;position:sticky;top:0;background:rgba(247,247,245,.96);backdrop-filter:blur(8px);z-index:10}
+.logo{font-size:25px;font-weight:800;letter-spacing:-1.5px}
+nav{display:flex;gap:38px;font-size:17px}
+nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.wrap{width:min(1320px,88vw);margin:auto}
+.hero{padding:105px 0 100px;border-bottom:1px solid var(--line)}
+.kicker{font-size:14px;letter-spacing:4px;font-weight:700;color:#52606a;margin-bottom:45px}
+.hero h1{font-size:clamp(64px,9vw,132px);line-height:.88;letter-spacing:-7px;margin:0 0 38px;max-width:1200px}
+.hero h1 span{color:#707070}
+.hero p{font-size:23px;max-width:950px;color:#4e5b64;margin:0}
+.section{padding:90px 0;border-bottom:1px solid var(--line)}
+.section-label{font-size:14px;letter-spacing:4px;font-weight:700;color:#52606a;margin-bottom:38px}
+.section-title{font-size:52px;line-height:1.02;letter-spacing:-2px;margin:0 0 42px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line)}
+.card{padding:42px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:300px;background:var(--card)}
+.card:nth-child(2n){border-right:0}
+.card:nth-last-child(-n+2){border-bottom:0}
+.number{font-size:14px;color:#777;letter-spacing:2px;margin-bottom:55px}
+.card h3{font-size:30px;line-height:1.15;margin:0 0 16px;letter-spacing:-1px}
+.card p{font-size:17px;color:#65717a;max-width:650px;margin:0 0 25px}
+.tag{display:inline-block;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid #bfc1bd;border-radius:20px;padding:5px 10px;margin-bottom:18px}
+.meta{font-size:13px;color:#77818a}
+.card .arrow{font-weight:700;margin-top:20px;display:inline-block}
+.article{background:#111;color:#fff;border-color:#111}
+.article p,.article .meta{color:#c9cccb}
+.article .tag{border-color:#555}
+.article .arrow{color:#fff}
+.positive{color:var(--green);font-weight:700}
+.calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.calc{border:1px solid var(--line);padding:30px;background:var(--card)}
+.calc h3{font-size:25px;margin:0 0 8px}
+.calc p{color:#68737b;font-size:14px;margin:0 0 22px}
+label{display:block;font-size:13px;font-weight:700;margin:13px 0 6px}
+input,select{width:100%;padding:12px 13px;border:1px solid #c8cbc7;background:#fff;font-size:16px;border-radius:2px}
+button{margin-top:18px;background:#111;color:#fff;border:0;padding:12px 18px;font-size:15px;font-weight:700;cursor:pointer}
+button:hover{opacity:.85}
+.result{margin-top:18px;padding:14px;background:#ecece8;font-weight:700;min-height:48px}
+.note{font-size:12px;color:#727a80;margin-top:10px}
+.tax-table{width:100%;border-collapse:collapse;margin-top:15px;font-size:13px}
+.tax-table td,.tax-table th{border:1px solid #ddd;padding:8px;text-align:left}
+footer{padding:60px 0;color:#68737b;font-size:14px}
+.disclaimer{border-left:3px solid #111;padding:14px 18px;background:#ecece8;font-size:14px;color:#4f5960}
+@media(max-width:800px){
+ header{height:auto;padding:20px 6vw;align-items:flex-start}
+ nav{gap:15px;font-size:14px;flex-wrap:wrap;justify-content:flex-end}
+ .hero{padding:70px 0}
+ .hero h1{font-size:62px;letter-spacing:-4px}
+ .hero p{font-size:19px}
+ .grid,.calc-grid{grid-template-columns:1fr}
+ .card{border-right:0!important}
+ .card:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+ .card:last-child{border-bottom:0}
+ .section-title{font-size:42px}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="index.html">TheJK.in</a>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="#explore">Topics</a>
+    <a href="#insights">Insights</a>
+    <a href="#calculators">Calculators</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="wrap">
+  <div class="kicker">FINANCE · MARKETS · INVESTING</div>
+  <h1>Finance &amp;<br><span>Markets.</span></h1>
+  <p>A practical space for market observations, company analysis, valuation, investing concepts, personal finance and simple tools that help turn numbers into decisions.</p>
+</div>
+</section>
+
+<section class="section" id="insights">
+<div class="wrap">
+  <div class="section-label">01 — INSIGHTS</div>
+  <h2 class="section-title">What matters in the market.</h2>
+  <div class="grid">
+
+    <article class="card article">
+      <div class="tag">Market View · 18 Aug 2026</div>
+      <h3>Why Indian markets are under pressure today</h3>
+      <p>Indian equities are facing a combination of higher crude oil, renewed West Asia tensions, elevated US bond yields and a weaker rupee. The key question is whether the pressure becomes a short-term risk-off move or starts affecting earnings expectations.</p>
+      <div class="meta">Nifty was around 24,200 during today's session; Brent crude moved above $91.</div>
+      <div class="arrow">Read the view →</div>
+    </article>
+
+    <article class="card">
+      <div class="tag">Earnings</div>
+      <h3>Nifty profit growth is improving — but margins still matter</h3>
+      <p>June 2026-quarter results showed strong aggregate profit growth among Nifty 50 companies. The encouraging part is the breadth of earnings improvement; the caution is that oil, input costs and global demand can still pressure selected sectors.</p>
+      <div class="meta">Focus: earnings quality · margins · upgrades/downgrades</div>
+      <div class="arrow">Explore the idea →</div>
+    </article>
+
+    <article class="card">
+      <div class="tag">Investing</div>
+      <h3>A falling market is not automatically a buying opportunity</h3>
+      <p>When indices decline, the better approach is to separate market risk from business risk. Strong balance sheets, sustainable cash generation and sensible valuations matter more than simply buying because a stock has fallen 10%.</p>
+      <div class="meta">Framework: business quality → valuation → catalyst → risk</div>
+      <div class="arrow">Read the framework →</div>
+    </article>
+
+    <article class="card">
+      <div class="tag">Personal Finance</div>
+      <h3>Build your financial decision around cash flow</h3>
+      <p>Salary, debt, emergency liquidity, insurance, investments and taxes are interconnected. A useful financial plan starts with cash-flow visibility before deciding how much to put into equities, gold, silver or other assets.</p>
+      <div class="meta">Practical finance · planning · risk management</div>
+      <div class="arrow">Explore personal finance →</div>
+    </article>
+
+    <article class="card">
+      <div class="tag">Stocks &amp; Companies</div>
+      <h3>How to read a stock beyond its P/E ratio</h3>
+      <p>Valuation is a starting point, not the conclusion. Compare return on capital, debt, free cash flow, earnings durability, competitive position and the price paid for future growth.</p>
+      <div class="meta">A simple checklist for long-term investors</div>
+      <div class="arrow">Read the checklist →</div>
+    </article>
+
+    <article class="card">
+      <div class="tag">Market View</div>
+      <h3>Crude oil is an important variable for India</h3>
+      <p>India's dependence on imported crude makes oil prices relevant to inflation, the rupee, the current account and corporate margins. When crude rises sharply, sector selection becomes particularly important.</p>
+      <div class="meta">Watch: crude · INR/USD · inflation · bond yields</div>
+      <div class="arrow">Understand the link →</div>
+    </article>
+
+  </div>
+</div>
+</section>
+
+<section class="section" id="explore">
+<div class="wrap">
+  <div class="section-label">02 — EXPLORE</div>
+  <h2 class="section-title">Four ways to use this section.</h2>
+  <div class="grid">
+    <div class="card"><div class="number">01</div><h3>Market View</h3><p>Market movements, sectors, macro trends and the forces behind them.</p><span class="arrow">Read insights →</span></div>
+    <div class="card"><div class="number">02</div><h3>Stocks &amp; Companies</h3><p>Business quality, earnings, valuation, catalysts and long-term investment perspectives.</p><span class="arrow">Read insights →</span></div>
+    <div class="card"><div class="number">03</div><h3>Personal Finance</h3><p>Tax, saving, investing, debt, cash flow and practical financial decisions.</p><span class="arrow">Read insights →</span></div>
+    <div class="card"><div class="number">04</div><h3>Tools &amp; Calculators</h3><p>Simple calculators for tax, SIPs, CAGR and loans — useful without spreadsheets.</p><a class="arrow" href="#calculators">Use calculators →</a></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="calculators">
+<div class="wrap">
+  <div class="section-label">03 — TOOLS</div>
+  <h2 class="section-title">Useful calculators.</h2>
+  <div class="calc-grid">
+
+    <div class="calc">
+      <h3>SIP Calculator</h3>
+      <p>Estimate the future value of a monthly investment.</p>
+      <label>Monthly investment (₹)</label><input id="sipP" type="number" value="10000">
+      <label>Expected annual return (%)</label><input id="sipR" type="number" value="12" step="0.1">
+      <label>Period (years)</label><input id="sipY" type="number" value="10">
+      <button onclick="sip()">Calculate</button>
+      <div class="result" id="sipOut">Enter values and calculate.</div>
+      <div class="note">Illustrative calculation; actual returns will vary.</div>
+    </div>
+
+    <div class="calc">
+      <h3>CAGR Calculator</h3>
+      <p>Calculate the annualised growth rate of an investment.</p>
+      <label>Initial value (₹)</label><input id="cStart" type="number" value="100000">
+      <label>Final value (₹)</label><input id="cEnd" type="number" value="200000">
+      <label>Period (years)</label><input id="cYears" type="number" value="5" step="0.1">
+      <button onclick="cagr()">Calculate</button>
+      <div class="result" id="cagrOut">Enter values and calculate.</div>
+    </div>
+
+    <div class="calc">
+      <h3>Loan EMI Calculator</h3>
+      <p>Estimate monthly EMI, total interest and total repayment.</p>
+      <label>Loan amount (₹)</label><input id="eP" type="number" value="5000000">
+      <label>Annual interest rate (%)</label><input id="eR" type="number" value="8.5" step="0.1">
+      <label>Tenure (years)</label><input id="eY" type="number" value="20">
+      <button onclick="emi()">Calculate</button>
+      <div class="result" id="emiOut">Enter values and calculate.</div>
+    </div>
+
+    <div class="calc">
+      <h3>New-Regime Income Tax</h3>
+      <p>Indicative calculator using the AY 2026-27 new-regime slabs.</p>
+      <label>Annual taxable income (₹)</label><input id="taxIncome" type="number" value="1200000">
+      <button onclick="tax()">Calculate</button>
+      <div class="result" id="taxOut">Enter income and calculate.</div>
+      <div class="note">Includes the ₹60,000 Section 87A rebate where applicable and 4% cess. This is an educational estimate, not a tax filing tool.</div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:25px" class="disclaimer">
+    <strong>Important:</strong> Market information can change quickly. Articles on this page are educational perspectives, not personalised investment advice or a recommendation to buy or sell any security. Verify current prices, filings and tax rules before acting.
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+  © 2026 TheJK.in · Finance &amp; Markets<br>
+  Ideas, experience and perspectives — presented for information and learning.
+</div>
+</footer>
+
+<script>
+function money(n){return "₹"+Math.round(n).toLocaleString("en-IN");}
+
+function sip(){
+  const p=+document.getElementById("sipP").value, annual=+document.getElementById("sipR").value, y=+document.getElementById("sipY").value;
+  if(p<=0||annual<0||y<=0){document.getElementById("sipOut").textContent="Please enter valid values.";return}
+  const r=annual/12/100, n=y*12;
+  const fv=r===0?p*n:p*((Math.pow(1+r,n)-1)/r)*(1+r);
+  const invested=p*n;
+  document.getElementById("sipOut").innerHTML="Estimated value: <span class='positive'>"+money(fv)+"</span><br>Invested: "+money(invested)+" · Gain: "+money(fv-invested);
+}
+function cagr(){
+  const s=+document.getElementById("cStart").value, e=+document.getElementById("cEnd").value, y=+document.getElementById("cYears").value;
+  if(s<=0||e<=0||y<=0){document.getElementById("cagrOut").textContent="Please enter valid values.";return}
+  const c=(Math.pow(e/s,1/y)-1)*100;
+  document.getElementById("cagrOut").textContent="CAGR: "+c.toFixed(2)+"% per year";
+}
+function emi(){
+  const p=+document.getElementById("eP").value, annual=+document.getElementById("eR").value, y=+document.getElementById("eY").value;
+  if(p<=0||annual<0||y<=0){document.getElementById("emiOut").textContent="Please enter valid values.";return}
+  const n=y*12, r=annual/12/100;
+  const m=r===0?p/n:p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+  const total=m*n;
+  document.getElementById("emiOut").innerHTML="Monthly EMI: <span class='positive'>"+money(m)+"</span><br>Total interest: "+money(total-p)+" · Total repayment: "+money(total);
+}
+function tax(){
+  let income=+document.getElementById("taxIncome").value;
+  const out=document.getElementById("taxOut");
+  if(income<0){out.textContent="Please enter a valid income.";return}
+  // AY 2026-27 new regime slabs
+  let base=0;
+  if(income<=400000) base=0;
+  else if(income<=800000) base=(income-400000)*.05;
+  else if(income<=1200000) base=20000+(income-800000)*.10;
+  else if(income<=1600000) base=60000+(income-1200000)*.15;
+  else if(income<=2000000) base=120000+(income-1600000)*.20;
+  else if(income<=2400000) base=200000+(income-2000000)*.25;
+  else base=300000+(income-2400000)*.30;
+
+  // Rebate under section 87A up to ₹60,000 where total income <= ₹12 lakh.
+  if(income<=1200000) base=Math.max(0,base-60000);
+  const cess=base*.04, total=base+cess;
+  out.innerHTML="Income tax: "+money(base)+"<br>4% cess: "+money(cess)+"<br><strong>Estimated tax: "+money(total)+"</strong>";
+}
+sip(); cagr(); emi(); tax();
+</script>
+</body>
+</html>
